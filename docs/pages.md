@@ -29,6 +29,7 @@ Rich functionality, custom scripts, and business logic
     "children": [ARRAY_OF_PAGES],
 }
 ```
+See also: [Field Definitions](#field-definition)
 
 ### id
 
@@ -71,13 +72,17 @@ Optional Boolean. Equals Yes, if the single page app has multiple pages (such as
     "select": {
         "model": "ListTables",
         "display": "TableName",
-        "copy": [ARRAY_OF_COPY_DIRECTIONS],
-        {
-        "from": "TableTableID",
-        "to": "TableJoinToTableID"
-        }
+        "copy": [
+            {
+                "from": "TableTableID",
+                "to": "TableJoinToTableID"
+            }
         ],
-        "where": [ARRAY_OF_WHERE_CLAUSES]
+        "where": [
+            {
+                "TBD": "TODO"
+            }
+        ]
     },
     "disabled": true,
     "fieldHelp": "This is a sample help text."
@@ -111,3 +116,13 @@ Optional Boolean. Enabled by default, disabled=false.
 ### fieldHelp
 
 Optional String. Longer help text in HTML for end users.<br> This feature is coming soon.
+
+### select
+
+Optional Object. Required if fieldType = select. Provides detailed definition for Smart Select boxes.
+
+#### select.model
+
+Required String. Name of the unique identifier for the Model to query for this Select.
+TODO: support models with values already listed.
+

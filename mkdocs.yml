@@ -4,6 +4,7 @@ pages:
 - [client.md, Client]
 - [server.md, Server]
 - [pages.md, Pages]
+- [models.md, Models]
 - [contributing.md, Contributing]
 - [about.md, About]
 repo_url: https://github.com/tantalim/tantalim-docs/
