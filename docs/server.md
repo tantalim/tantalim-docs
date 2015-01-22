@@ -1,5 +1,15 @@
 # Tantalim Server
 
+Tantalim Server is the backend for [Tantalim Client](client/) and is written in [Node.JS]().
+
+## NPM
+
+TODO: register Tantalim Server on [NPM](https://docs.npmjs.com/getting-started/creating-node-modules).
+
+## Contributing
+
+### GitHub
+
 Tantalim Server is 100% open source, so check out the source code and please help contribute changes.
 [https://github.com/tantalim/tantalim-server](https://github.com/tantalim/tantalim-server)
 
