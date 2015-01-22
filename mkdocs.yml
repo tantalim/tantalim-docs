@@ -6,4 +6,5 @@ pages:
 - [pages.md, Pages]
 - [contributing.md, Contributing]
 - [about.md, About]
+repo_url: https://github.com/tantalim/tantalim-docs/
 theme: readthedocs

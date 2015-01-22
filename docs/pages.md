@@ -2,7 +2,7 @@
 
 Rich functionality, custom scripts, and business logic
 
-Page Definition
+## Page Definition
 
 ```json
 {
@@ -30,88 +30,39 @@ Page Definition
 }
 ```
 
-<table class="table table-bordered">
-    <thead>
-    <tr>
-        <th>Field Name</th>
-        <th>Required</th>
-        <th>Data Type</th>
-        <th>Description</th>
-    </tr>
-    </thead>
-    <tbody class="table-hover">
-        <tr>
-            <td>id</td>
-            <td>Yes</td>
-            <td>String</td>
-            <td>Unique identifier for page. This is usually a GUID but can be an alpha-numeric string.</td>
-        </tr>
-        <tr>
-            <td>title</td>
-            <td>Yes</td>
-            <td>String</td>
-            <td>User friendly page title that will be displayed on menus and at the top of each single page app.</td>
-        </tr>
-        <tr>
-            <td>viewMode</td>
-            <td>No</td>
-            <td>Enumeration</td>
-            <td>The default starting display mode. Must be one of the following:
-                <ul>
-                    <li>single</li>
-                    <li>multiple</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td>modelName</td>
-            <td>Yes</td>
-            <td>String</td>
-            <td>The unique identifier of the model layer matching this page.</td>
-        </tr>
-        <tr>
-            <td>parentModel</td>
-            <td>No</td>
-            <td>String</td>
-            <td>The unique identifier of the model layer matching this page's parent. TODO: explain why this is needed and can't be inferred.</td>
-        </tr>
-        <tr>
-            <td>depth</td>
-            <td>No</td>
-            <td>Integer</td>
-            <td>Positive integer that describes the number of levels below the parent.</td>
-        </tr>
-        <tr>
-            <td>multiPage</td>
-            <td>No</td>
-            <td>Boolean</td>
-            <td>Yes, if the single page app has multiple pages (such as parent-child).</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </tbody>
-</table>
+### id
+
+Required String. Unique identifier for page. This is usually a GUID but can be an alpha-numeric string.
+
+### title
+
+Required String. User friendly page title that will be displayed on menus and at the top of each single page app.
+
+### viewMode
+
+Optional Enumeration. The default starting display mode. Must be one of the following:
+* single
+* multiple
+
+### modelName
+
+Required String. The unique identifier of the model layer matching this page.
+
+### parentModel
+
+Optional String. The unique identifier of the model layer matching this page's parent. TODO: explain why this is needed and can't be inferred.
+
+### depth
+
+Optional Integer. Positive integer that describes the number of levels below the parent.
+
+### multiPage
+
+Optional Boolean. Equals Yes, if the single page app has multiple pages (such as parent-child).
 
 ## Field Definition
 
+### Json Sample
 ```json
 {
     "fieldName": "SampleField",
@@ -133,48 +84,30 @@ Page Definition
 }
 ```
 
-<table class="table table-bordered">
-    <thead>
-    <tr>
-        <th>Field Name</th>
-        <th>Data Type</th>
-        <th>Description</th>
-    </tr>
-    </thead>
-    <tbody class="table-hover">
-    <tr>
-        <td>fieldName</td>
-        <td>String</td>
-        <td>Unique identifier for field. This is usually a programmer friendly alpha-numeric string without special characters and spaces.</td>
-    </tr>
-    <tr>
-        <td>fieldLabel</td>
-        <td>String</td>
-        <td>User friendly label for the field that will be visible in the column header and prompt.</td>
-    </tr>
-    <tr>
-        <td>fieldType</td>
-        <td>Enumeration</td>
-        <td>The type of field display. Must be one of the following:
-        <ul>
-            <li>string (default)</li>
-            <li>number</li>
-            <li>checkbox</li>
-            <li>select (aka smartselect)</li>
-            <li>radio</li>
-            <li>textarea</li>
-            <li>date</li>
-        </ul></td>
-    </tr>
-    <tr>
-        <td>disabled</td>
-        <td>boolean</td>
-        <td>Enabled by default, disabled=false.</td>
-    </tr>
-    <tr>
-        <td>fieldHelp</td>
-        <td>String</td>
-        <td>Longer help text in HTML for end users.<br> This feature is coming soon.</td>
-    </tr>
-    </tbody>
-</table>
+### fieldName
+
+Required String. Unique identifier for field. This is usually a programmer friendly alpha-numeric string without special characters and spaces.
+
+### fieldLabel
+
+Required String. User friendly label for the field that will be visible in the column header and prompt.
+
+### fieldType
+
+Optional Enumeration. The type of field display. Must be one of the following:
+
+* string (default)
+* number
+* checkbox
+* select (aka smartselect)
+* radio
+* textarea
+* date
+
+### disabled
+
+Optional Boolean. Enabled by default, disabled=false.
+
+### fieldHelp
+
+Optional String. Longer help text in HTML for end users.<br> This feature is coming soon.
