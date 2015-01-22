@@ -1,5 +1,9 @@
 site_name: Tantalim Documentation
 pages:
 - [index.md, Home]
+- [client.md, Client]
+- [server.md, Server]
+- [pages.md, Pages]
+- [contributing.md, Contributing]
 - [about.md, About]
 theme: readthedocs
