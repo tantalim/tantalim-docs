@@ -1,11 +1,16 @@
 site_name: Tantalim Documentation
-pages:
-- [index.md, Home]
-- [client.md, Client]
-- [server.md, Server]
-- [pages.md, Pages]
-- [models.md, Models]
-- [contributing.md, Contributing]
-- [about.md, About]
+site_url: http://docs.tantalim.com/
+
+copyright: Copyright &copy; 2015, Tantalim.
+
 repo_url: https://github.com/tantalim/tantalim-docs/
+
+pages:
+- ['index.md', 'Home']
+- ['client.md', 'Client']
+- ['server.md', 'Server']
+- ['pages.md', 'Pages']
+- ['models.md', 'Models']
+- ['contributing.md', 'Contributing']
+- ['about.md', 'About']
 theme: readthedocs

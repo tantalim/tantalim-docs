@@ -42,6 +42,7 @@ Required String. User friendly page title that will be displayed on menus and at
 ### viewMode
 
 Optional Enumeration. The default starting display mode. Must be one of the following:
+
 * single
 * multiple
 
@@ -60,6 +61,52 @@ Optional Integer. Positive integer that describes the number of levels below the
 ### multiPage
 
 Optional Boolean. Equals Yes, if the single page app has multiple pages (such as parent-child).
+
+### breadcrumb
+
+Optional Array of Breadcrumbs. (maybe should be plural?)
+
+```json
+{
+    "pageID": "BuildTable",
+    "modelName": "ManageTables",
+    "field": "TableName"
+}
+```
+
+### orderBy
+
+Optional String. The name of the field that sorting should occur by default.
+
+### splitFields
+
+Optional Array of [Fields](#field-definition). Will show fields on left side of form. This is typically used to help
+quickly navigate to the right record. See example below, the 2 splitFields on the left.
+![splitFields GUI](img/pages/splitFields.png "viewMode = single with 2 splitFields")
+
+### quickView
+
+Optional Array of [Fields](#field-definition). Used in Mobile. TODO: Consider renaming this to splitFields or vice versa.
+![listFields GUI](img/pages/quickView.jpg "viewMode = multiple with 4 listFields")
+
+### listFields
+
+Required if viewMode = multiple. Array of [Fields (aka Table Columns)](#field-definition) that display in tabular/grid format.
+![listFields GUI](img/pages/listFields.png "viewMode = multiple with 4 listFields")
+
+### formFields
+
+Required if viewMode = single. Array of [Fields](#field-definition) that display in form mode. See example below.
+![formFields GUI](img/pages/formFields.png "viewMode = multiple with 6 formFields")
+
+### buttons
+
+Optional Boolean.
+
+### children
+
+Optional Array of [Pages](#page-definition).
+
 
 ## Field Definition
 
