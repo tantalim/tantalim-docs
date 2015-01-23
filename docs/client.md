@@ -34,6 +34,38 @@ Part of `tantalim.common` the `ModelCursor` is created with a Model and a data s
 Keeping track of the structure of the data model and navigating up, down and sideways can get complex. The ModelCursor
 takes care of all of that complexity.
 
+#### SmartNodeInstance
+
+`id`: Unique row identifier
+
+`data`: The map of columns and values for this instance
+
+`nodeSet`: reference to the parent SmartNodeSet that contains this instance
+
+`childModels`: map of SmartNodeInstances representing the children of this node
+
+`state`: NO_CHANGE, DELETED, INSERTED, or UPDATED
+
+#### SmartNodeSet
+
+`model.modelName`: Name of the model
+
+`model.parentInstance`: Reference to the parent instance if any
+
+`model.orderBy`: String - name of column to sort by or function - function to apply to row for sorting
+
+`model.childModels`: Array of strings representing the name of each child model
+
+`parent.instance`: The parent SmartNodeInstance of this SmartNodeSet, null if this instance is root
+
+`parent.model`:
+
+`currentIndex`:
+
+`rows`: Array of SmartNodeInstances
+
+`deleted`: Array of SmartNodeInstances that have been marked to delete
+
 ### Desktop PageCursor
 
 Part of `tantalim.desktop` the `PageCursor` is created from a [Page definition](pages/#page-definition) and is
@@ -46,6 +78,8 @@ TODO: keep track of view is currently selected.
 Part of `tantalim.desktop` the `PageController` is the starting point for desktop single page apps. It uses `$scope`,
 `PageCursor`, `ModelCursor`, and more to handle most of the business logic.
 
+`listSmartSelect` is a map of server data used for each select option.
+
 ### Mobile PageController
 
 Part of `tantalim.mobile` the `PageController` is the starting point for mobile single page apps.
@@ -57,6 +91,9 @@ Tantalim uses a custom fork of [ui-select](https://github.com/angular-ui/ui-sele
 includes custom changes to support `ModelCursor`.
 
 ## Contributing
+
+### Reporting Issues
+[https://github.com/tantalim/tantalim-client/issues](https://github.com/tantalim/tantalim-client/issues)
 
 ### GitHub
 

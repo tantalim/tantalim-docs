@@ -8,6 +8,9 @@ TODO: register Tantalim Server on [NPM](https://docs.npmjs.com/getting-started/c
 
 ## Contributing
 
+### Reporting Issues
+[https://github.com/tantalim/tantalim-server/issues](https://github.com/tantalim/tantalim-server/issues)
+
 ### GitHub
 
 Tantalim Server is 100% open source, so check out the source code and please help contribute changes.

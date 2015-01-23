@@ -10,7 +10,9 @@ pages:
 - ['client.md', 'Client']
 - ['server.md', 'Server']
 - ['pages.md', 'Pages']
+- ['select.md', 'SmartSelect']
 - ['models.md', 'Models']
 - ['contributing.md', 'Contributing']
+- ['license.md', 'License']
 - ['about.md', 'About']
 theme: readthedocs

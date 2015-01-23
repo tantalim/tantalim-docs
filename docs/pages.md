@@ -13,7 +13,7 @@ Rich functionality, custom scripts, and business logic
     "parentModel": "BuildTable",
     "depth": 1,
     "multiPage": true,
-    "breadcrumb": [ARRAY_OF_BREADCRUMBS] (maybe should be plural?)
+    "breadcrumb": [ARRAY_OF_BREADCRUMBS]
         {
             "pageID": "BuildTable",
             "modelName": "ManageTables",
@@ -116,21 +116,7 @@ Optional Array of [Pages](#page-definition).
     "fieldName": "SampleField",
     "fieldLabel": "Sample Field",
     "fieldType": "checkbox",
-    "select": {
-        "model": "ListTables",
-        "display": "TableName",
-        "copy": [
-            {
-                "from": "TableTableID",
-                "to": "TableJoinToTableID"
-            }
-        ],
-        "where": [
-            {
-                "TBD": "TODO"
-            }
-        ]
-    },
+    "select": {},
     "disabled": true,
     "fieldHelp": "This is a sample help text."
 }
@@ -168,8 +154,44 @@ Optional String. Longer help text in HTML for end users.<br> This feature is com
 
 Optional Object. Required if fieldType = select. Provides detailed definition for Smart Select boxes.
 
+```json
+{
+    "model": "ListTables",
+    "display": "TableName",
+    "copy": [ARRAY_OF_COPY_CLAUSES],
+    "where": [ARRAY_OF_WHERE_CLAUSES]
+}
+```
+
 #### select.model
 
 Required String. Name of the unique identifier for the Model to query for this Select.
 TODO: support models with values already listed.
 
+#### select.display
+
+Required String. Name of the field used to display the results of the select option.
+
+TODO: Support more than one field and rich text.
+
+#### select.copy
+
+Required Array of copy from -> to clauses. The values for `from` and `to` should be field names. The `from` fieldname
+must be included in the `select.model`. The `to` fieldname must be included in the current view's `model`.
+```json
+{
+    "from": "TableTableID",
+    "to": "TableJoinToTableID"
+}
+```
+
+#### select.where
+
+Optional Array of where clauses. This feature is most commonly used when you're chaining select boxes (such as Choose
+Country, then Choose State) or when you're the select box should be based on the value of a given row.
+
+```json
+{
+    Not supported yet...
+}
+```
