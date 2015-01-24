@@ -2,38 +2,41 @@
 
 Creating dynamic select boxes can get complex very fast. Tantalim comes with a robust and full featured selection tool called SmartSelect.
 
+## From the [FieldDefinition](pages/#select)
+
+```json
+{
+    "fieldName": "TableModuleName",
+    "fieldLabel": "Module",
+    "fieldType": "select",
+    "select": {
+        "model": "ListModules",
+        "targetID": "TableModuleID",
+        "sourceValue": "ModuleModuleName",
+        "otherMappings": [
+            {
+                "source": "ModuleModuleCode",
+                "target": "TableModuleCode"
+            }
+        ],
+        "where": []
+    }
+}
+```
+[Source](https://github.com/tantalim/app-ide/blob/master/app/tantalim/ide/pages/ListTables.json#L55)
+
 ## From the [server](server/)
 
 ```html
-<ui-select ng-model="current.instances.{{../../modelName}}.data.{{fieldName}}"
-           tnt-model="current.instances.{{../../modelName}}"
-           tnt-copy="{{json this.select.copy}}"
-           id="{{../../modelName}}-{{fieldName}}">
-    <match placeholder="Select..." />
-    <choices repeat="row in listSmartSelect.{{select.model}} track by row.id"
-             refresh="runSmartSelect('{{this.select.model}}', '{{../../modelName}}', $select.search)"
-             refresh-delay="0">
-        <div ng-bind-html="row.data.{{select.display}} | highlight: $select.search"></div>
-    </choices>
+<ui-select
+        item-model="{{select.model}}"
+        item-value="{{select.sourceValue}}"
+        instance-model="{{../../modelName}}"
+        instance-key="{{select.targetID}}"
+        instance-value="{{fieldName}}"
+        other-mappings="{{json this.select.otherMappings}}"
+        >
 </ui-select>
 ```
+[Source](https://github.com/tantalim/tantalim-server/blob/master/app/views/partials/html_view_single.html#L13)
 
-## From the [client](client/)
-
-```JavaScript
-$scope.listSmartSelect = {};
-$scope.runSmartSelect = function (sourceModel, modelName, queryValue) {
-    PageService.queryModelData(sourceModel, queryValue).then(function (d) {
-        $scope.listSmartSelect[sourceModel] = d.data;
-    });
-};
-// this doesn't appear to be used anywhere??
-$scope.chooseSmartSelect = function (modelName, copyFields, row) {
-    ModelCursor.current.instances[modelName].selectOption(row, copyFields);
-    ModelCursor.change(ModelCursor.current.instances[modelName]);
-};
-```
-
-## Sequence Diagram
-
-runSmartSelect

@@ -15,4 +15,5 @@ pages:
 - ['contributing.md', 'Contributing']
 - ['license.md', 'License']
 - ['about.md', 'About']
+- ['todo.md', 'Todo']
 theme: readthedocs

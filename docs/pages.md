@@ -156,32 +156,36 @@ Optional Object. Required if fieldType = select. Provides detailed definition fo
 
 ```json
 {
-    "model": "ListTables",
-    "display": "TableName",
-    "copy": [ARRAY_OF_COPY_CLAUSES],
-    "where": [ARRAY_OF_WHERE_CLAUSES]
+    "model": "ListModules",
+    "targetID": "TableModuleID",
+    "sourceValue": "ModuleModuleName",
+    "otherMappings": [],
+    "where": []
 }
 ```
 
 #### select.model
 
-Required String. Name of the unique identifier for the Model to query for this Select.
+Required String. Name of the unique identifier for the source Model to query for this Select.
 TODO: support models with values already listed.
 
-#### select.display
+#### select.targetID
+
+
+#### select.sourceValue
 
 Required String. Name of the field used to display the results of the select option.
 
 TODO: Support more than one field and rich text.
 
-#### select.copy
+#### select.otherMappings
 
-Required Array of copy from -> to clauses. The values for `from` and `to` should be field names. The `from` fieldname
-must be included in the `select.model`. The `to` fieldname must be included in the current view's `model`.
+Required Array of copy source -> target clauses. The values for `source` and `target` should be field names. The `source` fieldname
+must be included in the `select.model`. The `target` fieldname must be included in the current view's `model`.
 ```json
 {
-    "from": "TableTableID",
-    "to": "TableJoinToTableID"
+    "source": "ModuleModuleCode",
+    "target": "TableModuleCode"
 }
 ```
 
