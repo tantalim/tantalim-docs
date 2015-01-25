@@ -10,12 +10,24 @@ From Column
 [Example](http://localhost:3000/page/BuildTable/#/p/TableJoins)
 Click Insert on Join Columns
 
+### Setup CI
+Add Travis CI
+Add https://coveralls.io/
+Add https://david-dm.org/
+
 ## Later
 
 ### Allow selects with only a few values
 [Example](http://localhost:3000/page/BuildTable/#/p/TableJoins)
-OM -> One to Many
-MM -> Many to Many
+
+* OM -> One to Many
+* MM -> Many to Many
+
+Three types of select:
+
+* static - for just a few records with constant values that are the same everytime the page is views. Examples: Yes/No, Countries
+* dynamic - for fewer than 1000 records, support client side filtering and dependent where clauses. Examples: Employees in a small company, Columns in a table.
+* infinite - for more than 1000 possible records, support server side filtering and paging. Examples: Github Projects, Wikipedia articles
 
 ### Allow opening page with query
 http://localhost:3000/page/BuildTable/#/p/BuildTable/:id

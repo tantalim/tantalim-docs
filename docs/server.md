@@ -8,6 +8,25 @@ TODO: register Tantalim Server on [NPM](https://docs.npmjs.com/getting-started/c
 
 ## Contributing
 
+## Testing
+
+Tantalim code should have at least 80% code coverage.
+
+```sh
+grunt test
+```
+
+Some of the testing tools are:
+
+* [supertest](https://github.com/tj/supertest)
+* [should](https://github.com/shouldjs/should.js)
+* [sinon](http://sinonjs.org/)
+* [proxyquire](https://github.com/thlorenz/proxyquire)
+* [chai](http://chaijs.com/)
+* [chai-as-promised](https://github.com/domenic/chai-as-promised/)
+* [grunt-mocha-test](https://github.com/pghalliday/grunt-mocha-test)
+* [mocha](http://mochajs.org/)
+
 ### Reporting Issues
 [https://github.com/tantalim/tantalim-server/issues](https://github.com/tantalim/tantalim-server/issues)
 
