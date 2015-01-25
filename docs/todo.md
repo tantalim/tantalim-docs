@@ -2,12 +2,13 @@
 
 ## Up Next
 
-### Allow more than one select to exist on a single page
-[Example](http://localhost:3000/page/BuildTable/#/p/TableJoins)
-
 ### Enable selects with where clauses
 [Example](http://localhost:3000/page/BuildTable/#/p/TableJoins)
 From Column
+
+### Fix bug for adding grandchild rows
+[Example](http://localhost:3000/page/BuildTable/#/p/TableJoins)
+Click Insert on Join Columns
 
 ## Later
 
