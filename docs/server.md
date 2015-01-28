@@ -12,6 +12,13 @@ TODO: register Tantalim Server on [NPM](https://docs.npmjs.com/getting-started/c
 
 Tantalim code should have at least 80% code coverage.
 
+TODO: add in Coveralls for test coverage report
+
+For continuous testing and syntax checking
+```sh
+grunt
+```
+or for one time testing (used for CI)
 ```sh
 grunt test
 ```
@@ -41,3 +48,15 @@ Tantalim Server is 100% open source, so check out the source code and please hel
 <iframe src="http://ghbtns.com/github-btn.html?user=tantalim&repo=tantalim-server&type=watch&count=true&size=large"
         allowtransparency="true" frameborder="0" scrolling="0" width="156" height="30"></iframe>
 
+
+### Publishing Releases
+
+When Tantalim should be released do the following:
+
+Increase version in [package.json](https://github.com/tantalim/tantalim-server/blob/master/package.json)
+
+```sh
+npm publish
+```
+
+Tag new version on [Github](https://github.com/tantalim/tantalim-server/releases/new).
