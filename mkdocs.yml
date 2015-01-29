@@ -7,13 +7,14 @@ repo_url: https://github.com/tantalim/tantalim-docs/
 
 pages:
 - ['index.md', 'Home']
-- ['client.md', 'Client']
+- ['todo.md', 'Todo']
+- ['client/client.md', 'Client', 'Client']
+- ['client/model-cursor.md', 'Client', 'ModelCursor']
+- ['client/select.md', 'Client', 'SmartSelect']
 - ['server.md', 'Server']
 - ['pages.md', 'Pages']
-- ['select.md', 'SmartSelect']
 - ['models.md', 'Models']
 - ['contributing.md', 'Contributing']
 - ['license.md', 'License']
 - ['about.md', 'About']
-- ['todo.md', 'Todo']
 theme: readthedocs

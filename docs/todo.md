@@ -10,12 +10,14 @@ From Column
 [Example](http://localhost:3000/page/BuildTable/#/p/TableJoins)
 Click Insert on Join Columns
 
-### Setup CI
-Add Travis CI
-Add https://coveralls.io/
-Add https://david-dm.org/
-
 ## Later
+
+### Setup Code Coverage
+
+Add https://coveralls.io/
+
+* https://coveralls.io/r/tantalim/tantalim-client
+* https://coveralls.io/r/tantalim/tantalim-server
 
 ### Allow selects with only a few values
 [Example](http://localhost:3000/page/BuildTable/#/p/TableJoins)
