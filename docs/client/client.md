@@ -76,3 +76,16 @@ Unit testing
 
 Refer to the [README.md](https://github.com/tantalim/tantalim-client/blob/master/README.md) for instructions on how to
 run and build the application.
+
+
+### Publishing Releases
+
+When Tantalim should be released do the following:
+
+Increase version in [package.json](https://github.com/tantalim/tantalim-client/blob/master/package.json)
+
+```sh
+npm publish
+```
+
+Tag new version on [Github](https://github.com/tantalim/tantalim-client/releases/new).

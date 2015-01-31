@@ -8,7 +8,7 @@
     "modelName": "BuildTable"
   },
   "basisTable": TABLE_DEFINITION,
-  "primaryKey": FIELD_DEFINITION,
+  "instanceID": "TableID",
   "limit": 10,
   "orderBy": [ARRAY_OF_ORDER_CLAUSES],
   "fields": [ARRAY_OF_FIELD_DEFINITIONS],
@@ -41,10 +41,13 @@ all the data in the view together. All other fields should be reachable from a M
 ```
 Above is a standard (if not minimalistic) table definition.
 
+#### instanceID
+
+Optional field name of this instance's (row's) unique identifier. Previously called `primaryKey`.
+
 #### primaryKey
 
-This instance's (row's) unique identifier. See [Field Definition](#field-definition) for more details.
-TODO: consider renaming this to instanceID or something else so it's not confused with `basisTable.primaryKey`.
+Deprecated, use `instanceID`.
 
 #### limit
 
@@ -103,6 +106,12 @@ set of pages. `children` is an array of model views that are related to the pare
   "fieldStepID": "302",
   "basisColumn": {
     "dbName": "name"
+  },
+  "dataType": "String",
+  "fieldDefault": {
+    "type": "field",
+    "value": "TableName",
+    "updateable": false
   }
 }
 ```
@@ -117,6 +126,29 @@ Identifies which table this field belongs. Defaults to the basis table if not in
 #### basisColumn
 JSON for the table column this field references. `dbName` is expected. Some fields may not reference a database column.
 In these cases, a function may be expected.
+
+#### dataType
+Optional parameter that describes the type of column this represents. If not specified, it should (probably??) use the
+`basisColumn.dataType` value.
+
+* TODO - list out the valid data types
+* Boolean
+
+#### fieldDefault
+Optional parameter that describes any default values when inserting a new instance into the set.
+
+##### fieldDefault.type
+The type of default.
+
+* constant (default if not specified) - any constant default value such as 1 or HelloWorld
+* sourceField - any value from a field in the current instance or in a parent instance, such as TableID
+* fxn - any JavaScript function to be executed, such as "function() { return 1 + 1 }"
+
+##### fieldDefault.value
+The constant value, source field name, or function text.
+
+##### fieldDefault.updateable
+When `type` equals "field", updateable means that the value will keep defaulting everytime the source field changes.
 
 ## Data
 

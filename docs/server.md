@@ -10,9 +10,12 @@ TODO: register Tantalim Server on [NPM](https://docs.npmjs.com/getting-started/c
 
 ## Testing
 
-Tantalim code should have at least 80% code coverage.
+'npm run coverage'
 
-TODO: add in Coveralls for test coverage report
+Tantalim code should have at least 80% code coverage. TODO: add https://github.com/daniellmb/grunt-istanbul-coverage
+
+TODO: add in Coveralls
+
 
 For continuous testing and syntax checking
 ```sh
