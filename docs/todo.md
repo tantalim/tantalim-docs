@@ -6,10 +6,6 @@
 [Example](http://localhost:3000/page/BuildTable/#/p/TableJoins)
 From Column
 
-### Fix bug for adding grandchild rows
-[Example](http://localhost:3000/page/BuildTable/#/p/TableJoins)
-Click Insert on Join Columns
-
 ## Later
 
 ### Setup Code Coverage

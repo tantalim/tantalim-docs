@@ -2,8 +2,8 @@
 
 ## Commercial License
 
-This is the appropriate option if you want to use Ext JS to develop commercial applications whose source code you want
-to keep proprietary.
+This is the appropriate option if you want to use Tantalim to develop commercial applications whose source code you
+want to keep proprietary.
 
 Commercial licenses will soon be available. Pricing is negotiable for early adopters.
 

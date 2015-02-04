@@ -8,6 +8,7 @@ repo_url: https://github.com/tantalim/tantalim-docs/
 pages:
 - ['index.md', 'Home']
 - ['todo.md', 'Todo']
+- ['getting-started.md', 'Getting Started']
 - ['client/client.md', 'Client', 'Client']
 - ['client/model-cursor.md', 'Client', 'ModelCursor']
 - ['client/select.md', 'Client', 'SmartSelect']
