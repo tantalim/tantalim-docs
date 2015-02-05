@@ -15,6 +15,10 @@ You need to be familiar with this content ONLY if you're programming on the Tant
     "name": "Table",
     "dbName": "db_table"
   },
+  "parentLink": {
+    "parentField": "TableID",
+    "childField": "ParentID",
+  },
   "instanceID": "TableID",
   "limit": 10,
   "orderBy": [ARRAY_OF_ORDER_CLAUSES],
@@ -96,11 +100,13 @@ is converted to this:
 
 ```json
 {
-  "fieldName": "TableJoinToTableName",
-  "fieldStepID": "302",
+  "name": "TableDatabaseID",
   "basisColumn": {
-    "dbName": "name"
+    "name": "DatabaseID",
+    "dbName": "databaseID"
   },
+  "basisTable": "Table",
+  "stepCount": 0,
   "dataType": "String",
   "fieldDefault": {
     "type": "field",

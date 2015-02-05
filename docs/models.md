@@ -9,7 +9,11 @@
   "orderBy": [ARRAY_OF_ORDER_CLAUSES],
   "fields": [ARRAY_OF_FIELD_DEFINITIONS],
   "steps": [ARRAY_OF_STEPS],
-  "children": [ARRAY_OF_MODEL_DEFINITONS]
+  "parentLink": {
+    "parentField": "TableID",
+    "childField": "ParentID",
+  },
+  "children": [ARRAY_OF_MODEL_DEFINITIONS]
 }
 ```
 
@@ -38,6 +42,11 @@ Above is a typical order by clause.
 
 * `fieldName` is the programmatic field as listed in this model.
 * `direction` is the sort order such as ASC (default) or DESC.
+
+#### parentLink
+
+Required only for child models. The `parentField` is a string that refers to the name of one field in the parent view.
+The `childField` is a string that refers to the name of one field in the current (child) view.
 
 #### children
 
