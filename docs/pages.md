@@ -31,13 +31,19 @@ Rich functionality, custom scripts, and business logic
 ```
 See also: [Field Definitions](#field-definition)
 
-### id
+### name
 
 Required String. Unique identifier for page. This is usually a GUID but can be an alpha-numeric string.
 
 ### title
 
 Required String. User friendly page title that will be displayed on menus and at the top of each single page app.
+
+### glyphicon
+
+Optional name of [glyphicon](http://getbootstrap.com/components/#glyphicons-glyphs) to be included as identifier for
+this page on menus. Eventually, this be changed to http://fontawesome.io/icons/ or have the ability to include custom
+icons.
 
 ### viewMode
 
@@ -46,9 +52,10 @@ Optional Enumeration. The default starting display mode. Must be one of the foll
 * single
 * multiple
 
-### modelName
+### model
 
-Required String. The unique identifier of the model layer matching this page.
+Optional String. The unique identifier of the model layer matching this page. If not specified, this defaults to the
+name of the page. This is required on child sections.
 
 ### parentModel
 

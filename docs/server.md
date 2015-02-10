@@ -18,13 +18,18 @@ TODO: add in Coveralls
 
 
 For continuous testing and syntax checking
-```sh
+```bash
 grunt
 ```
 or for one time testing (used for CI)
-```sh
+```bash
 grunt test
 ```
+or to publish test coverage results
+```bash
+./run_coverage.sh
+```
+
 
 Some of the testing tools are:
 
