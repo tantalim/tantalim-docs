@@ -11,7 +11,7 @@
   "steps": [ARRAY_OF_STEPS],
   "parentLink": {
     "parentField": "TableID",
-    "childField": "ParentID",
+    "childField": "ParentID"
   },
   "children": [ARRAY_OF_MODEL_DEFINITIONS]
 }
