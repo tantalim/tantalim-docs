@@ -95,11 +95,8 @@ JSON for the table column this field references. `dbName` is expected. Some fiel
 In these cases, a function may be expected.
 
 #### dataType
-Optional parameter that describes the type of column this represents. If not specified, it should (probably??) use the
-`basisColumn.dataType` value.
-
-* TODO - list out the valid data types
-* Boolean
+Optional parameter that describes the type of column this represents. If not specified, it will default to
+[`basisColumn.dataType`](tables#columns) value. Refer to [Data Types](datatypes) for more information.
 
 #### fieldDefault
 Optional parameter that describes any default values when inserting a new instance into the set.

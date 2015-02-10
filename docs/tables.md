@@ -24,6 +24,7 @@ The primary key or unique identifier of the table. Tantalim doesn't support comp
 {
   "name": "ColumnID",
   "dbName": "columnID",
+  "dataType": "String",
   "required": true,
   "updateable": false,
   "columnDefault": "GUID"
@@ -42,6 +43,10 @@ Programmatic name of the column. This is used in the following places:
 
 The name of the column in the database.
 
+#### dataType
+Optional parameter that describes the type of column this represents. Defaults to String if not specified.
+Refer to [Data Types](datatypes) for more information.
+
 #### required
 
 Optional, Boolean value if the column is required. Defaults to `false`.
@@ -54,7 +59,15 @@ Optional Boolean value if the column can be changed. Defaults to `true`.
 
 When created, should the column get a default value.
 
+* Autoincrement
 * GUID
+* CreatedDate - current time of database on insert
+* UpdatedDate - current time of database on insert or update
+* CreatedByUserID
+* CreatedByUsername
+* UpdatedByUserID
+* UpdatedByUsername
+* UpdatedByProcess
 
 ## Joins
 

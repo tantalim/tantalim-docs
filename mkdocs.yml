@@ -19,6 +19,7 @@ pages:
 - ['bytecode.md', 'Structure', 'Bytecode']
 - ['data.md', 'Structure', 'Data']
 - ['tables.md', 'Structure', 'Tables']
+- ['datatypes.md', 'Structure', 'Data Types']
 - ['contributing.md', 'Other', 'Contributing']
 - ['license.md', 'Other', 'License']
 - ['about.md', 'Other', 'About']
