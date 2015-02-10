@@ -14,6 +14,7 @@ pages:
 - ['client/select.md', 'Client', 'SmartSelect']
 - ['server.md', 'Backend', 'Server']
 - ['pages.md', 'Structure', 'Pages']
+- ['menus.md', 'Structure', 'Menus']
 - ['models.md', 'Structure', 'Models']
 - ['bytecode.md', 'Structure', 'Bytecode']
 - ['data.md', 'Structure', 'Data']
