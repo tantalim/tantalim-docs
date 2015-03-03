@@ -1,21 +1,27 @@
 # Models
 
-## Model Definition
-
 ```json
 {
   "basisTable": "TableName",
   "limit": 10,
+  "allowInsert": true,
+  "allowUpdate": true,
+  "allowDelete": true,
   "orderBy": [ARRAY_OF_ORDER_CLAUSES],
-  "fields": [ARRAY_OF_FIELD_DEFINITIONS],
-  "steps": [ARRAY_OF_STEPS],
   "parentLink": {
     "parentField": "TableID",
     "childField": "ParentID"
   },
-  "children": [ARRAY_OF_MODEL_DEFINITIONS]
+  "children": [ARRAY_OF_MODEL_DEFINITIONS],
+  "fields": [ARRAY_OF_FIELD_DEFINITIONS],
+  "steps": [ARRAY_OF_STEPS]
 }
 ```
+
+#### name
+
+This is implied by the name of the file such as `Person.json`. Don't include this in the definition.
+This name is the programmatic name and it's used by things such as [Page.model](pages#model).
 
 #### basisTable
 
@@ -28,9 +34,21 @@ all the data in the view together. All other fields should be reachable from a M
 The default limit of records that can be retrieved without paging. In general, models with a lot of fields should use a
 smaller limit. "Thin" models with no children and just a few fields can have a very high limit.
 
+#### allowInsert
+
+Optional Boolean true or false. Defaults to `true`.
+
+#### allowUpdate
+
+Optional Boolean true or false. Defaults to `true`.
+
+#### allowDelete
+
+Optional Boolean true or false. Defaults to `true`.
+
 #### orderBy
 
-The default order by clause if one is not supplied.
+The default order by clause if one is not supplied at runtime.
 
 ```json
 {
@@ -46,7 +64,9 @@ Above is a typical order by clause.
 #### parentLink
 
 Required only for child models. The `parentField` is a string that refers to the name of one field in the parent view.
-The `childField` is a string that refers to the name of one field in the current (child) view.
+The `childField` is a string that refers to the name of one field in the current (child) view. On insert (and update),
+the childField will always default it's value from the parentField. This behavior is automatic and does not require a
+column default.
 
 #### children
 
@@ -73,13 +93,9 @@ Steps define the pathway from one table to the next on a query. They rely on pre
 {
   "name": "TableJoinToTableName",
   "step": "302",
-  "basisColumn": "Name"
-  "dataType": "String",
-  "fieldDefault": {
-    "type": "field",
-    "value": "TableName",
-    "updateable": false
-  }
+  "basisColumn": "Name",
+  "required": false,
+  "updateable": true
 }
 ```
 
@@ -94,22 +110,11 @@ Identifies which table this field belongs. Defaults to the basis table if not in
 JSON for the table column this field references. `dbName` is expected. Some fields may not reference a database column.
 In these cases, a function may be expected.
 
-#### dataType
-Optional parameter that describes the type of column this represents. If not specified, it will default to
-[`basisColumn.dataType`](tables#columns) value. Refer to [Data Types](datatypes) for more information.
+#### required
 
-#### fieldDefault
-Optional parameter that describes any default values when inserting a new instance into the set.
+Optional Boolean value if the column is required. Defaults to [Table.required](tables#required).
 
-##### fieldDefault.type
-The type of default.
+#### updateable
 
-* constant (default if not specified) - any constant default value such as 1 or HelloWorld
-* sourceField - any value from a field in the current instance or in a parent instance, such as TableID
-* fxn - any JavaScript function to be executed, such as "function() { return 1 + 1 }"
+Optional Boolean value if the column can be changed. Defaults to [Table.updateable](tables#updateable).
 
-##### fieldDefault.value
-The constant value, source field name, or function text.
-
-##### fieldDefault.updateable
-When `type` equals "field", updateable means that the value will keep defaulting everytime the source field changes.

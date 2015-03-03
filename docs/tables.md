@@ -36,7 +36,7 @@ FUTURE USE: The name of the database the table is in.
 
 #### primaryKey
 
-The primary key or unique identifier of the table.
+The primary key or unique identifier of the table. This is required if you need to save data to the table. If it's read only, then you can skip this.
 
 Note: Tantalim doesn't support composite primary keys at this time.
 
@@ -62,6 +62,10 @@ Required list of columns for this table.
   "name": "ColumnID",
   "dbName": "columnID",
   "dataType": "String",
+  "label": "Column ID",
+  "help": "Unique ID for this column",
+  "placeholder": "Enter the unique ID",
+  "fieldType": "text",
   "required": true,
   "updateable": false,
   "columnDefault": "GUID"
@@ -81,7 +85,7 @@ Programmatic name of the column. This is used in the following places:
 Optional name of the column in the database. Defaults to the column name if not specified.
 
 #### dataType
-Optional parameter that describes the type of column this represents. Defaults to String if not specified.
+Optional parameter that describes the type of column this represents. Defaults to `String` if not specified.
 Refer to [Data Types](datatypes) for more information.
 
 #### label
@@ -94,7 +98,7 @@ Optional default for [PageField.help](pages#fields)
 Optional default for [PageField.placeholder](pages#fields)
 
 #### fieldType
-Optional default for [PageField.fieldType](pages#fields)
+Optional default for [PageField.fieldType](pages#fields). Defaults to `text` if not specified.
 
 #### required
 

@@ -6,145 +6,121 @@ Rich functionality, custom scripts, and business logic
 
 ```json
 {
-    "id": "SamplePage",
     "title": "Build Table",
-    "viewMode": "single",
-    "modelName": "TableColumns",
-    "parentModel": "BuildTable",
-    "depth": 1,
-    "multiPage": true,
-    "breadcrumb": [ARRAY_OF_BREADCRUMBS]
-        {
-            "pageID": "BuildTable",
-            "modelName": "ManageTables",
-            "field": "TableName"
-        }
-    ],
+    "model": "TableColumns",
+    "viewMode": "form",
+    "icon": "fa-plus",
+    "css": "build_table.css",
     "orderBy": "TableColumnDisplayOrder",
-    "splitFields": [ARRAY_OF_FIELDS],
-    "quickView": [ARRAY_OF_FIELDS],
-    "listFields": [ARRAY_OF_FIELDS],
-    "formFields": [ARRAY_OF_FIELDS],
-    "buttons": [ARRAY_OF_BUTTONS],
+    "fields": [ARRAY_OF_FIELDS],
     "children": [ARRAY_OF_PAGES],
 }
 ```
-See also: [Field Definitions](#field-definition)
 
 ### name
 
-Required String. Unique identifier for page. This is usually a GUID but can be an alpha-numeric string.
+This is implied by the name of the file such as `AdministerPerson.json`. Don't include this in the definition.
+This name is the programmatic name and it's used by things such as [Menu](menus).
 
 ### title
 
 Required String. User friendly page title that will be displayed on menus and at the top of each single page app.
-
-### glyphicon
-
-Optional name of [glyphicon](http://getbootstrap.com/components/#glyphicons-glyphs) to be included as identifier for
-this page on menus. Eventually, this be changed to http://fontawesome.io/icons/ or have the ability to include custom
-icons.
-
-### viewMode
-
-Optional Enumeration. The default starting display mode. Must be one of the following:
-
-* single
-* multiple
 
 ### model
 
 Optional String. The unique identifier of the model layer matching this page. If not specified, this defaults to the
 name of the page. This is required on child sections.
 
-### parentModel
+### viewMode
 
-Optional String. The unique identifier of the model layer matching this page's parent. TODO: explain why this is needed and can't be inferred.
+Optional Enumeration. The default starting display mode. Must be one of the following:
 
-### depth
+* `form` (default)
+* `table`
 
-Optional Integer. Positive integer that describes the number of levels below the parent.
+### icon
 
-### multiPage
+Optional name of icon to be included as identifier for this page on menus. Can be either a
+[Glyphicon](http://getbootstrap.com/components/#glyphicons-glyphs) or from [Font Awesome](http://fontawesome.io/icons/).
 
-Optional Boolean. Equals Yes, if the single page app has multiple pages (such as parent-child).
+Examples:
 
-### breadcrumb
-
-Optional Array of Breadcrumbs. (maybe should be plural?)
-
-```json
-{
-    "pageID": "BuildTable",
-    "modelName": "ManageTables",
-    "field": "TableName"
-}
-```
-
-### orderBy
-
-Optional String. The name of the field that sorting should occur by default.
-
-### splitFields
-
-Optional Array of [Fields](#field-definition). Will show fields on left side of form. This is typically used to help
-quickly navigate to the right record. See example below, the 2 splitFields on the left.
-![splitFields GUI](img/pages/splitFields.png "viewMode = single with 2 splitFields")
-
-### quickView
-
-Optional Array of [Fields](#field-definition). Used in Mobile. TODO: Consider renaming this to splitFields or vice versa.
-![listFields GUI](img/pages/quickView.jpg "viewMode = multiple with 4 listFields")
-
-### listFields
-
-Required if viewMode = multiple. Array of [Fields (aka Table Columns)](#field-definition) that display in tabular/grid format.
-![listFields GUI](img/pages/listFields.png "viewMode = multiple with 4 listFields")
-
-### formFields
-
-Required if viewMode = single. Array of [Fields](#field-definition) that display in form mode. See example below.
-![formFields GUI](img/pages/formFields.png "viewMode = multiple with 6 formFields")
+* fa-bookmark
+* glyphicon-asterisk
 
 ### buttons
 
-Optional Boolean.
+FUTURE Array of buttons
 
 ### children
 
 Optional Array of [Pages](#page-definition).
 
-
 ## Fields
 
-### Json Sample
 ```json
 {
-    "fieldName": "SampleField",
-    "fieldLabel": "Sample Field",
+    "name": "SampleField",
+    "label": "Sample Field",
+    "showInFormView": true,
+    "showInTableView": true,
+    "showInNavigation": true,
     "fieldType": "checkbox",
     "select": {},
     "disabled": true,
-    "fieldHelp": "This is a sample help text."
+    "searchable": true,
+    "help": "This is a sample help text.",
+    "placeholder": "Placeholder text",
+    "filter": "uppercase",
+    "blurFunction": "This is a sample help text.",
+    "links": [{
+        "page": "TargetPageName",
+        "title": "Target Page Name",
+        "filter": "TableTableID Equals [TableTableID]",
+    }]
 }
 ```
 
-### fieldName
 
+#### name
+Required name of the field. Used as programmatic identifier of field (can be used as object properties and JavaScript).
+Should follow standard naming conventions for variables. Typically, the field should be `StepName` + `TableColumnName`.
 Required String. Unique identifier for field. This is usually a programmer friendly alpha-numeric string without special characters and spaces.
 
-### fieldLabel
+### label
 
-Required String. User friendly label for the field that will be visible in the column header and prompt.
+Optional String. User friendly label for the field that will be visible in the column header and prompt.
+Defaults to [TableColumn.label](tables#label) if not specified.
+
+### showInFormView
+
+Optional Boolean defaults to true. If viewMode = form, there must be at least one field where showInFormView = true.
+See example below: ![formFields GUI](img/pages/formFields.png "viewMode = form with 6 fields")
+
+### showInTableView
+
+Optional Boolean defaults to true. If viewMode = table, there must be at least one field where showInTableView = true.
+![listFields GUI](img/pages/listFields.png "viewMode = table with 4 fields")
+
+### showInNavigation
+
+Optional Boolean defaults to false. If true, then the field will show fields on left side of form or in mobile. This is typically
+used to help quickly navigate to the right record. See example below, the 2 splitFields on the left.
+![splitFields GUI](img/pages/splitFields.png "viewMode = form with 2 fields")
+
+![listFields GUI](img/pages/quickView.jpg "viewMode = table with 4 fields")
 
 ### fieldType
 
 Optional Enumeration. The type of field display. Must be one of the following:
 
-* string (default)
-* number
+* text (default)
 * checkbox
-* select (aka smartselect)
+* select
+
+FUTURE:
+
+* number
 * radio
 * textarea
 * date
@@ -153,9 +129,30 @@ Optional Enumeration. The type of field display. Must be one of the following:
 
 Optional Boolean. Enabled by default, disabled=false.
 
-### fieldHelp
+### searchable
+
+Optional Boolean defaults to true. If true, the the field is searchable in the search screen.
+
+### help
 
 Optional String. Longer help text in HTML for end users.<br> This feature is coming soon.
+
+#### fieldDefault
+Optional parameter that describes any default values when inserting a new instance into the set.
+
+##### fieldDefault.type
+The type of default.
+
+* constant (default if not specified) - any constant default value such as 1 or HelloWorld
+* sourceField - any value from a field in the current instance or in a parent instance, such as TableID
+* fxn - any JavaScript function to be executed, such as "function() { return 1 + 1 }"
+
+##### fieldDefault.value
+The constant value, source field name, or function text.
+
+##### fieldDefault.updateable
+When `type` equals "field", updateable means that the value will keep defaulting everytime the source field changes.
+
 
 ### select
 
