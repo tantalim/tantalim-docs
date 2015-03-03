@@ -2,22 +2,20 @@
 
 ## Up Next
 
+### Save field defaults on server
+If the fieldDefault.overwrite == true then do what it says on the server side.
+
 ### Enable selects with where clauses
 [Example](http://localhost:3000/page/BuildTable/#/p/TableJoins)
 From Column
 
 ## Later
 
+### Enable cascading deletes
+
 ### Add Support for Transactions
 
 [Using Knex Transactions](http://knexjs.org/#Transactions)
-
-### Setup Code Coverage
-
-Add https://coveralls.io/
-
-* https://coveralls.io/r/tantalim/tantalim-client
-* https://coveralls.io/r/tantalim/tantalim-server
 
 ### Allow selects with only a few values
 [Example](http://localhost:3000/page/BuildTable/#/p/TableJoins)
@@ -40,6 +38,5 @@ choose which errors I want to see
 to and from Excel
 http://stackoverflow.com/questions/21028578/how-to-get-clipboard-data-in-angular-js
 
-### Improve the key binding for changing instances
-* know when user is focused on the quick nav or multiple view
-* know which view should be changed
+### Support editing in table view
+or just doubleclick to change to form view
